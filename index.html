@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noah Habteab — Mediamatiker EFZ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="pl-wrap">
+      <img src="img/Logo.png" alt="NH" class="pl-logo" />
+      <div class="pl-line">
+        <div class="pl-fill" id="pl-fill"></div>
+      </div>
+      <div class="pl-num" id="pl-num">0<span>%</span></div>
+    </div>
+  </div>
+
+  <!-- NOISE -->
+  <canvas id="grain"></canvas>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lb-close">&#x2715;</button>
+    <div class="lb-inner">
+      <img id="lb-img" src="" alt="" />
+      <video id="lb-video" controls style="display:none;max-width:60vw;max-height:82vh;flex-shrink:0;"></video>
+      <p class="lb-caption" id="lb-caption"></p>
+      <p class="lb-desc" id="lb-desc"></p>
+    </div>
+  </div>
+
+  <!-- ===================== NAV ===================== -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">
+      <img src="img/Logo.png" alt="NH" />
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#unterlagen">Unterlagen</a></li>
+      <li><a href="#contact" class="nav-cta">Kontakt</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mob-nav" id="mob-nav">
+    <ul>
+      <li><a href="#portfolio" class="mob-a">Portfolio</a></li>
+      <li><a href="#design" class="mob-a">Design</a></li>
+      <li><a href="#about" class="mob-a">About</a></li>
+      <li><a href="#hobbys" class="mob-a">Hobbys</a></li>
+      <li><a href="#skills" class="mob-a">Skills</a></li>
+      <li><a href="#unterlagen" class="mob-a">Unterlagen</a></li>
+      <li><a href="#contact" class="mob-a">Kontakt</a></li>
+    </ul>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero">
+    <div class="hero-inner">
+
+      <!-- Left col -->
+      <div class="hero-left">
+        <h1 class="hero-title">
+          <span class="ht-line"><span class="ht-word" data-w="0">STAERKER</span></span>
+          <span class="ht-line ht-italic"><em class="ht-word" data-w="1">durch</em></span>
+          <span class="ht-line hero-last-line">
+            <span class="ht-word" data-w="2">VERAENDERUNG</span><span class="hero-cursor">_</span>
+          </span>
+        </h1>
+
+        <div class="hero-actions rv" style="--d:.7s">
+          <a href="#portfolio" class="btn-line magnetic">Projekte ansehen ↓</a>
+          <a href="#contact" class="btn-fill magnetic">Kontakt aufnehmen</a>
+        </div>
+      </div>
+
+      <!-- Right col: Photo -->
+      <div class="hero-right rv" style="--d:.3s">
+        <div class="hero-photo-frame" id="hero-frame">
+          <img src="img/Portraet_Noah.webp" alt="Noah Habteab" id="hero-img" />
+          <div class="hero-photo-caption">
+            <span>Noah Habteab</span>
+            <span>18 Jahre · Bern</span>
+          </div>
+        </div>
+        <div class="hero-badge rv" style="--d:.9s">
+          <span class="badge-tag">Offen für</span>
+          <span class="badge-val">Lehrstellen</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-scroll rv" style="--d:1.2s">
+      <div class="hs-bar"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ===================== PORTFOLIO ===================== -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="sec-label rv">( Portfolio )</div>
+      <h2 class="sec-title rv">Fotografie &amp;<br />Videografie</h2>
+      <div class="port-filter rv" style="--d:.15s">
+        <button class="pf-btn active" data-f="all">Alle</button>
+        <button class="pf-btn" data-f="foto">Fotografie</button>
+        <button class="pf-btn" data-f="video">Video</button>
+      </div>
+    </div>
+
+    <div class="mosaic-grid" id="port-grid">
+
+      <div class="mc mc-w6 mc-tall rv tilt" data-c="foto"
+        data-desc="Manche Bilder entstehen, weil man ein Motiv findet. Dieses entstand, weil ich das Licht gefunden habe. Das Licht war das Thema, nicht das Motiv dahinter. Ich wollte zeigen, dass Licht keine Nebenrolle spielt, sondern selbst eine Aussage ist. Die Silhouette war das Werkzeug dafür: Form reduziert auf das Wesentliche, damit das Licht sprechen kann.">
+        <div class="mc-img"><img src="img/Foto-Giulio_Silhuette.webp" alt="Silhouette" /></div>
+        <div class="mc-over"><span class="mc-cat">Fotografie</span>
+          <h3>Silhouette</h3>
+        </div>
+        <span class="mc-num">01</span>
+      </div>
+      <div class="mc rv tilt" data-c="foto" style="--d:.05s"
+        data-desc="Inspiration kann überall sein, man muss sie nur erkennen und dann umsetzen. Ich habe dieses Shooting auf Instagram gesehen und wollte es selber umsetzen. Was mich daran fasziniert hat, war die Einfachheit dahinter, nur 2 Blitzlichter, keine aufwändige Bearbeitung. Die Kontraste entstanden allein durch die Position des Models. Das hat mir gezeigt, dass weniger oft mehr ist.">
+        <div class="mc-img"><img src="img/Foto-Joy_Crazy.webp" alt="Joy Crazy" /></div>
+        <div class="mc-over"><span class="mc-cat">Fotografie</span>
+          <h3>Joy Crazy</h3>
+        </div>
+        <span class="mc-num">02</span>
+      </div>
+      <div class="mc rv tilt" data-c="foto" style="--d:.08s"
+        data-desc="Nicht jedes Motiv muss gesucht werden. Manchmal stellt es sich einfach vor dich hin. Das Fahrrad hat mich sofort angesprochen, wegen seiner Symmetrie. Es gibt Motive, die ihre eigene Komposition mitbringen. Man muss sie nur erkennen. Ich musste nichts arrangieren, nur den richtigen Winkel finden, der den Diagonalen gerecht wird. Das war die einzige Entscheidung.">
+        <div class="mc-img"><img src="img/Foto-Car.webp" alt="Car" /></div>
+        <div class="mc-over"><span class="mc-cat">Fotografie</span>
+          <h3>Car</h3>
+        </div>
+        <span class="mc-num">03</span>
+      </div>
+      <div class="mc rv tilt" data-c="video" data-video="Videos/Short_film.mp4" style="--d:.06s"
+        data-desc="Ein Bild sagt mehr als tausend Worte. Aber eine Geschichte sagt mehr als ein Bild. Dieser Kurzfilm entstand, um das Storytelling zu üben. Weil ich überzeugt bin, dass Storytelling das Wichtigste in der visuellen Kunst ist, nicht die Technik. Ich habe die Perspektive gezielt eingesetzt, um Bild und Geschichte zu einem zu machen. Jede Einstellung war eine bewusste Entscheidung darüber, was der Zuschauer sehen soll, und was nicht.">
+        <div class="mc-img">
+          <video autoplay muted loop playsinline src="Videos/Short_film.mp4"></video>
+          <div class="mc-play"><svg viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="6,3 20,12 6,21" />
+            </svg></div>
+        </div>
+        <div class="mc-over"><span class="mc-cat">Videografie</span>
+          <h3>Short Film</h3>
+        </div>
+        <span class="mc-num">04</span>
+      </div>
+      <div class="mc rv tilt" data-c="foto" style="--d:.1s"
+        data-desc="Gute Bilder warten nicht auf den perfekten Moment, sie sind da, wenn man bereit ist. Ein Ferienbild, aber keine zufällige Aufnahme. Die Führungslinie der Brücke war bereits da, perfekt. Ich musste nur den Standpunkt finden, der ihr gerecht wird, und den Auslöser drücken. Manchmal ist das die eigentliche Arbeit: das Offensichtliche zu sehen, bevor es jemand anderes tut.">
+        <div class="mc-img"><img src="img/Foto-bruecke.webp" alt="Brücke" /></div>
+        <div class="mc-over"><span class="mc-cat">Fotografie</span>
+          <h3>Brücke</h3>
+        </div>
+        <span class="mc-num">05</span>
+      </div>
+      <div class="mc mc-w4 rv tilt" data-c="foto" style="--d:.04s"
+        data-desc="Wie erzählt man die Geschichte eines Objekts? Das war ein Schulprojekt über Produktfotografie. Ich habe mich bewusst gegen das klassische Produktbild entschieden und den Lifestyle-Ansatz gewählt. Weil ein Produkt allein keine Geschichte erzählt. Der Vibe, die Atmosphäre rund ums Objekt, das ist genauso Teil des Bildes wie das Produkt selbst.">
+        <div class="mc-img"><img src="img/Foto-Parfuem.webp" alt="Parfum" /></div>
+        <div class="mc-over"><span class="mc-cat">Fotografie</span>
+          <h3>Parfum</h3>
+        </div>
+        <span class="mc-num">06</span>
+      </div>
+      <div class="mc mc-w4 rv tilt" data-c="video" data-video="Videos/Eritrea_Recap.mp4" style="--d:.07s"
+        data-desc="Manche Orte spricht man nicht einfach an, man kehrt zu ihnen zurück. Das war in den Ferien, als wir in die Heimat gereist sind. Alles per Hand, ohne Stativ, ohne zusätzliche Ausrüstung. Den Vintage-Look habe ich in der Bearbeitung hinzugefügt, nicht als Filter, sondern weil er zur Stimmung des Landes gepasst hat. Das Schwierigste war, dass Kameras dort nicht gern gesehen werden. Diese Einschränkung war Teil des Werks, und hat es ehrlicher gemacht.">
+        <div class="mc-img">
+          <video autoplay muted loop playsinline src="Videos/Eritrea_Recap.mp4"></video>
+          <div class="mc-play"><svg viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="6,3 20,12 6,21" />
+            </svg></div>
+        </div>
+        <div class="mc-over"><span class="mc-cat">Videografie</span>
+          <h3>Eritrea Recap</h3>
+        </div>
+        <span class="mc-num">07</span>
+      </div>
+      <div class="mc mc-w4 rv tilt" data-c="foto" style="--d:.11s"
+        data-desc="Jeder hat ein Bild, das alles verändert hat. Das war in meinem 1. Lehrjahr, beim Üben von Portraitfotografie. Davor dachte ich, Fotografieren sei simpel. Dieses Shooting hat das geändert. Ich habe gemerkt, dass hinter jedem guten Bild eine Entscheidung steckt, über Licht, Abstand, Blick. Dass Fotografie Absicht braucht, keinen Zufall.">
+        <div class="mc-img"><img src="img/Foto-Mirav.webp" alt="Mirav" /></div>
+        <div class="mc-over"><span class="mc-cat">Fotografie</span>
+          <h3>Mirav</h3>
+        </div>
+        <span class="mc-num">08</span>
+      </div>
+      <div class="mc rv tilt" data-c="foto" style="--d:.03s"
+        data-desc="Ein Konzert zu fotografieren heisst, im Chaos eine Ordnung zu finden. Das war ein Konzert eines Kollegen, bei dem ich fotografiert habe. Ich wollte eine neue Herausforderung. Ein Konzert ist Chaos: viele Menschen, viel Bewegung, kein klares Motiv. Die Idee war, durch die Menge einen bewussten Tunnel zu schaffen, der das Auge zwingend zum Künstler führt. Ordnung im Chaos.">
+        <div class="mc-img"><img src="img/Foto-Ale_Cartier_Fans.webp" alt="Ale Cartier Fans" /></div>
+        <div class="mc-over"><span class="mc-cat">Fotografie</span>
+          <h3>Ale Cartier Fans</h3>
+        </div>
+        <span class="mc-num">09</span>
+      </div>
+      <div class="mc mc-w5 rv tilt" data-c="foto" style="--d:.09s"
+        data-desc="Manchmal ist die stärkste Entscheidung, etwas wegzulassen. Ein Licht. Bewusst. Ich wollte nicht mehr, weil mehr das Ziel verfehlt hätte. Der Hell-Dunkel-Kontrast entsteht nicht trotz eines einzigen Lichts, sondern genau deshalb. Schatten ist keine Abwesenheit von Licht. Schatten ist eine Entscheidung.">
+        <div class="mc-img"><img src="img/Foto-Abel.webp" alt="Abel" /></div>
+        <div class="mc-over"><span class="mc-cat">Fotografie</span>
+          <h3>Abel</h3>
+        </div>
+        <span class="mc-num">10</span>
+      </div>
+      <div class="mc mc-w2 rv tilt" data-c="foto" style="--d:.12s"
+        data-desc="Wenn ein Kunde kommt, bringt er eine Idee. Was ich mitbringe, ist der Blick. Eine echte Produktfotografie für eine stylische Brille. Ich habe den Wunsch des Kunden ausgeführt und dabei trotzdem meinen eigenen Blick eingebracht. Mit der Bearbeitung habe ich einen Vibe eingefangen, der über das reine Produktbild hinausgeht. Der Kunde war sehr zufrieden. Das war die Bestätigung.">
+        <div class="mc-img"><img src="img/Foto-Girl_Glass.webp" alt="Girl Glass" /></div>
+        <div class="mc-over"><span class="mc-cat">Fotografie</span>
+          <h3>Girl Glass</h3>
+        </div>
+        <span class="mc-num">11</span>
+      </div>
+      <div class="mc mc-w2 rv tilt" data-c="foto" style="--d:.14s"
+        data-desc="Nicht jedes Bild zeigt, was es zeigt. Kopfhörer verbinde ich mit Musik, und Musik schafft einen eigenen Raum. Ich wollte diesen Raum sichtbar machen. Eine Stimmung kreieren, die ruhig ist, fokussiert, eine Oase. Das Bild sollte nicht zeigen, wie Kopfhörer aussehen, sondern wie sie sich anfühlen.">
+        <div class="mc-img"><img src="img/Foto-Bottom.webp" alt="Bottom" /></div>
+        <div class="mc-over"><span class="mc-cat">Fotografie</span>
+          <h3>Bottom</h3>
+        </div>
+        <span class="mc-num">12</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PHOTO AUTO-SCROLL -->
+  <div class="photo-scroll">
+    <button class="ps-btn ps-prev" id="ps-prev" aria-label="Zurück">&#8592;</button>
+    <button class="ps-btn ps-next" id="ps-next" aria-label="Weiter">&#8594;</button>
+    <div class="ps-track" id="ps-track">
+      <div class="ps-item" data-title="Ale Cartier BW" data-desc="Manchmal entscheidet eine einzige Wahl, ob ein Bild wirkt, oder nur existiert. Das war ein Konzert eines Kollegen. Ich habe mich entschieden, dieses Bild in Schwarz-Weiss zu zeigen. Farbe hätte abgelenkt. In Schwarz-Weiss bleibt nur das Licht, der Moment, die Stimmung. Genau das wollte ich."><img src="img/Foto-Ale_Cartier_BW.webp" alt="Ale Cartier BW" /></div>
+      <div class="ps-item" data-title="Busstation" data-desc="Komposition beginnt im Kopf, nicht in der Kamera. Die Schilder der Busstation haben eine natürliche Blickführung, sie navigieren das Auge, ohne dass man eingreifen muss. Das Bild hatte ich im Kopf, bevor ich die Kamera gehoben habe. Manchmal sieht man das fertige Bild schon, bevor man auf den Auslöser drückt. Das ist der Moment, auf den man wartet."><img src="img/Foto-Busstation.webp" alt="Busstation" /></div>
+      <div class="ps-item" data-title="Statue" data-desc="Manche Motive warten nicht. Man muss schnell sein. Das Bild hat sich in den Ferien ergeben. Ich habe den Vogel auf der Statue gesehen und wusste sofort, dass da ein Bild ist. Die Gebüsche habe ich als visuelles Framing genutzt, damit das Hauptmotiv trotz der Umgebung klar ins Auge fällt. Es war eine schnelle Entscheidung. Die besten oft sind."><img src="img/Foto-statue.webp" alt="Statue" /></div>
+      <div class="ps-item" data-title="Giulio Denken" data-desc="Das Licht kann verbergen. Oder es kann zeigen. Beides ist eine Entscheidung. Hier geht es um einen Moment, den Moment des Nachdenkens. Das Licht fällt so, dass es den Ausdruck hervorhebt, anstatt ihn zu verbergen. Licht nicht als Effekt, sondern als Erzähler."><img src="img/Foto-Giulio_Denken.webp" alt="Giulio Denken" /></div>
+      <div class="ps-item" data-title="Jersey Zombie" data-desc="Wenn alles im Bild schreit, muss das Wichtigste leise sprechen. Ein Jersey-Reveal-Shooting für ein neues Trikot. Die Herausforderung war, trotz der Bewegung im Bild das Trikot als Hauptmotiv zu behalten. Das Licht habe ich bewusst so gesetzt, dass es direkt auf das Trikot lenkt. Action als Rahmen, nicht als Ablenkung."><img src="img/Foto-Jersey_Zombie.webp" alt="Jersey Zombie" /></div>
+      <div class="ps-item" data-title="Turm" data-desc="Ein gutes Bild beginnt vor der Kamera, und endet in der Bearbeitung. Das Bild entstand in den Ferien. Die Bildstruktur war von Anfang an stark, aber das reichte nicht. Entscheidend war das Maskieren in der Bearbeitung: das Hauptmotiv vom Hintergrund lösen, damit es die Aufmerksamkeit bekommt, die es verdient. Bearbeitung nicht als Korrektiv, sondern als Aussage."><img src="img/Foto-Turm.webp" alt="Turm" /></div>
+      <div class="ps-item" data-title="Kleider Cold" data-desc="Der Blick des Betrachters ist keine Zufallssache. Ein Produktfotoshooting für einen Pullover. Die Idee war, die Geometrie so zu nutzen, dass der Blick keine Wahl hat, er wird zum Kleidungsstück geführt. Eine Sogwirkung, die nichts dem Zufall überlässt. Das war die Absicht. Und sie hat funktioniert."><img src="img/Foto-Kleider_Cold.webp" alt="Kleider Cold" /></div>
+      <div class="ps-item" data-title="Lana Baseballschläger" data-desc="Eine Kundin kommt mit einem Wunsch. Die Aufgabe ist, diesen Wunsch sichtbar zu machen. Ein Geburtstags-Fotoshooting, bei dem die Kundin einen 2000er-Vibe haben wollte. Der Vibe war klar, die Umsetzung war die Arbeit. Vor allem die Bearbeitung war entscheidend: ein Gleichgewicht finden zwischen zu viel und zu wenig. Zu viel wirkt künstlich. Zu wenig zeigt nichts. Die Mitte ist das Ziel."><img src="img/Foto-Lana_Baseballschlaeger.webp" alt="Lana Baseballschläger" /></div>
+      <div class="ps-item" data-title="White Boy Verzögert" data-desc="Effekte, die in der Kamera entstehen, erzählen mehr als solche, die nachträglich hinzugefügt werden. Ebenfalls ein Trikot-Reveal-Shooting, aber ein anderer Gedanke dahinter. Den Verzögerungseffekt wollte ich direkt aus der Kamera erstellen, nicht nachträglich hinzufügen. Das Ergebnis ist dadurch ehrlicher. Was die Kamera aufnimmt, ist real. Was man nachher hinzufügt, ist eine Interpretation."><img src="img/Foto-White_Boy_Verzoegert.webp" alt="White Boy Verzögert" /></div>
+      <div class="ps-item" data-title="Boy Glasse" data-desc="Produktfotografie ist nicht nur Dokumentation, sie ist Interpretation. Eine Produktfotografie für eine stylische Brille. Ich habe den Wunsch des Kunden genommen und konsequent umgesetzt, dabei aber meinen eigenen Blick eingebracht, damit das Bild über das reine Produktfoto hinausgeht."><img src="img/Foto-Boy_Glasse.webp" alt="Boy Glasse" /></div>
+      <div class="ps-item" data-title="Kopfhörer" data-desc="Das Auge folgt immer einer Spur, ob man es merkt oder nicht. Ich habe mit den Fluchtlinien eine Tiefenwirkung geschaffen, die das Auge direkt zum Hauptmotiv zieht. Das Ziel war, dass der Betrachter keine andere Wahl hat, sein Blick wird geführt, ohne dass er es merkt. Gute Komposition arbeitet unsichtbar."><img src="img/Foto-Kopfhoerer.webp" alt="Kopfhörer" /></div>
+      <!-- duplicate for seamless loop -->
+      <div class="ps-item" data-title="Ale Cartier BW" data-desc="Manchmal entscheidet eine einzige Wahl, ob ein Bild wirkt, oder nur existiert. Das war ein Konzert eines Kollegen. Ich habe mich entschieden, dieses Bild in Schwarz-Weiss zu zeigen. Farbe hätte abgelenkt. In Schwarz-Weiss bleibt nur das Licht, der Moment, die Stimmung. Genau das wollte ich."><img src="img/Foto-Ale_Cartier_BW.webp" alt="Ale Cartier BW" /></div>
+      <div class="ps-item" data-title="Busstation" data-desc="Komposition beginnt im Kopf, nicht in der Kamera. Die Schilder der Busstation haben eine natürliche Blickführung, sie navigieren das Auge, ohne dass man eingreifen muss. Das Bild hatte ich im Kopf, bevor ich die Kamera gehoben habe. Manchmal sieht man das fertige Bild schon, bevor man auf den Auslöser drückt. Das ist der Moment, auf den man wartet."><img src="img/Foto-Busstation.webp" alt="Busstation" /></div>
+      <div class="ps-item" data-title="Statue" data-desc="Manche Motive warten nicht. Man muss schnell sein. Das Bild hat sich in den Ferien ergeben. Ich habe den Vogel auf der Statue gesehen und wusste sofort, dass da ein Bild ist. Die Gebüsche habe ich als visuelles Framing genutzt, damit das Hauptmotiv trotz der Umgebung klar ins Auge fällt. Es war eine schnelle Entscheidung. Die besten oft sind."><img src="img/Foto-statue.webp" alt="Statue" /></div>
+      <div class="ps-item" data-title="Giulio Denken" data-desc="Das Licht kann verbergen. Oder es kann zeigen. Beides ist eine Entscheidung. Hier geht es um einen Moment, den Moment des Nachdenkens. Das Licht fällt so, dass es den Ausdruck hervorhebt, anstatt ihn zu verbergen. Licht nicht als Effekt, sondern als Erzähler."><img src="img/Foto-Giulio_Denken.webp" alt="Giulio Denken" /></div>
+      <div class="ps-item" data-title="Jersey Zombie" data-desc="Wenn alles im Bild schreit, muss das Wichtigste leise sprechen. Ein Jersey-Reveal-Shooting für ein neues Trikot. Die Herausforderung war, trotz der Bewegung im Bild das Trikot als Hauptmotiv zu behalten. Das Licht habe ich bewusst so gesetzt, dass es direkt auf das Trikot lenkt. Action als Rahmen, nicht als Ablenkung."><img src="img/Foto-Jersey_Zombie.webp" alt="Jersey Zombie" /></div>
+      <div class="ps-item" data-title="Turm" data-desc="Ein gutes Bild beginnt vor der Kamera, und endet in der Bearbeitung. Das Bild entstand in den Ferien. Die Bildstruktur war von Anfang an stark, aber das reichte nicht. Entscheidend war das Maskieren in der Bearbeitung: das Hauptmotiv vom Hintergrund lösen, damit es die Aufmerksamkeit bekommt, die es verdient. Bearbeitung nicht als Korrektiv, sondern als Aussage."><img src="img/Foto-Turm.webp" alt="Turm" /></div>
+      <div class="ps-item" data-title="Kleider Cold" data-desc="Der Blick des Betrachters ist keine Zufallssache. Ein Produktfotoshooting für einen Pullover. Die Idee war, die Geometrie so zu nutzen, dass der Blick keine Wahl hat, er wird zum Kleidungsstück geführt. Eine Sogwirkung, die nichts dem Zufall überlässt. Das war die Absicht. Und sie hat funktioniert."><img src="img/Foto-Kleider_Cold.webp" alt="Kleider Cold" /></div>
+      <div class="ps-item" data-title="Lana Baseballschläger" data-desc="Eine Kundin kommt mit einem Wunsch. Die Aufgabe ist, diesen Wunsch sichtbar zu machen. Ein Geburtstags-Fotoshooting, bei dem die Kundin einen 2000er-Vibe haben wollte. Der Vibe war klar, die Umsetzung war die Arbeit. Vor allem die Bearbeitung war entscheidend: ein Gleichgewicht finden zwischen zu viel und zu wenig. Zu viel wirkt künstlich. Zu wenig zeigt nichts. Die Mitte ist das Ziel."><img src="img/Foto-Lana_Baseballschlaeger.webp" alt="Lana Baseballschläger" /></div>
+      <div class="ps-item" data-title="White Boy Verzögert" data-desc="Effekte, die in der Kamera entstehen, erzählen mehr als solche, die nachträglich hinzugefügt werden. Ebenfalls ein Trikot-Reveal-Shooting, aber ein anderer Gedanke dahinter. Den Verzögerungseffekt wollte ich direkt aus der Kamera erstellen, nicht nachträglich hinzufügen. Das Ergebnis ist dadurch ehrlicher. Was die Kamera aufnimmt, ist real. Was man nachher hinzufügt, ist eine Interpretation."><img src="img/Foto-White_Boy_Verzoegert.webp" alt="White Boy Verzögert" /></div>
+      <div class="ps-item" data-title="Boy Glasse" data-desc="Produktfotografie ist nicht nur Dokumentation, sie ist Interpretation. Eine Produktfotografie für eine stylische Brille. Ich habe den Wunsch des Kunden genommen und konsequent umgesetzt, dabei aber meinen eigenen Blick eingebracht, damit das Bild über das reine Produktfoto hinausgeht."><img src="img/Foto-Boy_Glasse.webp" alt="Boy Glasse" /></div>
+      <div class="ps-item" data-title="Kopfhörer" data-desc="Das Auge folgt immer einer Spur, ob man es merkt oder nicht. Ich habe mit den Fluchtlinien eine Tiefenwirkung geschaffen, die das Auge direkt zum Hauptmotiv zieht. Das Ziel war, dass der Betrachter keine andere Wahl hat, sein Blick wird geführt, ohne dass er es merkt. Gute Komposition arbeitet unsichtbar."><img src="img/Foto-Kopfhoerer.webp" alt="Kopfhörer" /></div>
+    </div>
+  </div>
+
+  <!-- ===================== GRAPHIC DESIGN ===================== -->
+  <section id="design" class="section s-dark">
+    <div class="container">
+      <div class="sec-label rv">( Graphic Design )</div>
+      <h2 class="sec-title rv">Poster, Covers<br />&amp; Artworks</h2>
+      <p class="sec-intro rv" style="--d:.1s">
+        Drei Projekte – drei unterschiedliche Welten. Jedes entstand mit einem klaren Konzept:
+        Typografie als Werkzeug, Bild als Aussage, Farbe als Entscheidung.
+      </p>
+
+      <div class="dsgn-cards">
+
+        <div class="dsgn-card rv tilt" style="--d:.05s"
+          data-desc="Ein Bild kann eine Geschichte erzählen. Ein Poster muss mehr tun, es muss eine Welt schaffen. Das Bild allein hätte gereicht, aber ich wollte mehr daraus machen. In der Bearbeitung habe ich den 2000s-Vibe weiter ausgearbeitet und das Alter auf dem Shirt hinzugefügt. Nicht als Dekoration, sondern als Detail, das die Geschichte vervollständigt. Typografie als Teil des Bildes.">
+          <div class="dc-vis">
+            <img src="img/Year_of_Poster.webp" alt="Year Of Poster" />
+          </div>
+          <div class="dc-meta">
+            <span class="dc-num">01</span>
+            <span class="dc-title">Year Of</span>
+          </div>
+        </div>
+
+        <div class="dsgn-card rv tilt" style="--d:.1s"
+          data-desc="Ein Cover ist die erste Begegnung, und erste Begegnungen entscheiden alles. Dieses Cover wollte ich als Magazin-Cover gestalten. Ein Magazin-Cover hat eine klare Aufgabe: Es muss sofort wirken. Ich habe mich für einen minimalistischen Ansatz entschieden, weil das Bild selber stark genug ist. Jedes zusätzliche Element hätte davon abgelenkt. Weniger war die richtige Entscheidung.">
+          <div class="dc-vis">
+            <img src="img/odf_cover_Poster.webp" alt="ODF Cover Poster" />
+          </div>
+          <div class="dc-meta">
+            <span class="dc-num">02</span>
+            <span class="dc-title">ODF Cover</span>
+          </div>
+        </div>
+
+        <div class="dsgn-card rv tilt" style="--d:.15s"
+          data-desc="Die härteste Aufgabe ist die, die man sich selbst stellt. Dieses Poster habe ich mir selber als Herausforderung gestellt. Kein Auftrag, kein Briefing, nur die Frage, ob ich ein Event-Poster gestalten kann, das wirklich funktioniert. Eines, das auf den ersten Blick alles kommuniziert. Die Herausforderung war nicht die Technik, sondern die Entscheidung: Was bleibt drin, was fällt raus. Das Ergebnis war meine Antwort.">
+          <div class="dc-vis">
+            <img src="img/Travis_Scott_Poster.webp" alt="Travis Scott Poster" />
+          </div>
+          <div class="dc-meta">
+            <span class="dc-num">03</span>
+            <span class="dc-title">Travis Scott</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ÜBER MICH ===================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="sec-label rv">( Über mich )</div>
+    </div>
+
+    <!-- Full-width quote -->
+    <div class="about-quote-strip rv" style="--d:.1s">
+      <p>
+        Ich bin Noah Habteab, 18 Jahre alt, aufgewachsen in Bern.
+        Seit ich denken kann interessiere ich mich für Bilder –
+        wie sie wirken, was sie sagen, <em>was sie verschweigen.</em>
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-photo-col rv" style="--d:.15s">
+          <div class="about-photo-wrap tilt">
+            <img src="img/Portraet_Noah.webp" alt="Noah Habteab" />
+            <div class="about-photo-tag">
+              <span>Noah Habteab</span>
+              <span>Mediamatiker EFZ · Bern</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-col">
+
+          <div class="about-block rv" style="--d:.2s">
+            <h3 class="about-block-head">( Ausbildung )</h3>
+            <p>
+              Ich mache meine Ausbildung als Mediamatiker EFZ und bin im 3. Lehrjahr.
+              Fotografie, Videografie und Graphic Design sind für mich keine Fächer –
+              es ist meine Sprache.
+            </p>
+          </div>
+
+          <div class="about-block rv" style="--d:.28s">
+            <h3 class="about-block-head">( Mentalität )</h3>
+            <p>
+              Ich bin jemand, der nicht aufgibt. American Football hat mir beigebracht,
+              was Teamgeist und Durchhaltevermögen wirklich bedeuten.
+              Das nehme ich in jede Arbeit mit.
+            </p>
+            <blockquote class="about-quote">
+              „Jede Herausforderung ist eine Chance, stärker zurückzukommen."
+            </blockquote>
+          </div>
+
+          <div class="about-block rv" style="--d:.36s">
+            <h3 class="about-block-head">( Vision )</h3>
+            <p>
+              Ich sehe Licht anders. Ein Bild ist nie nur ein Bild – es ist eine Entscheidung.
+              Wo der Fokus liegt. Was ausgeblendet wird. Wie sich etwas anfühlen soll.
+            </p>
+          </div>
+
+          <div class="about-block rv" style="--d:.44s">
+            <h3 class="about-block-head">( Ziel )</h3>
+            <p>
+              Ich suche einen Betrieb, der mir Vertrauen schenkt.
+              Im Gegenzug gebe ich alles.
+            </p>
+            <a href="#contact" class="btn-fill magnetic" style="margin-top:1.5rem; display:inline-flex;">
+              Kontakt aufnehmen
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== HOBBYS ===================== -->
+  <section id="hobbys" class="section s-dark">
+    <div class="container">
+      <div class="sec-label rv">( Persönlichkeit )</div>
+      <h2 class="sec-title rv">Hobbys &amp;<br />Interessen</h2>
+
+      <div class="hobby-list">
+
+        <div class="hob rv tilt" style="--d:.04s">
+          <div class="hob-idx">01</div>
+          <div class="hob-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+              <line x1="6" y1="1" x2="6" y2="4" />
+              <line x1="10" y1="1" x2="10" y2="4" />
+              <line x1="14" y1="1" x2="14" y2="4" />
+            </svg>
+          </div>
+          <div class="hob-text">
+            <h3>American Football</h3>
+            <p>Football hat mich gelehrt, was Teamgeist und Durchhaltevermögen wirklich bedeuten.</p>
+          </div>
+        </div>
+
+        <div class="hob rv tilt" style="--d:.1s">
+          <div class="hob-idx">02</div>
+          <div class="hob-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M3 9a2 2 0 0 1 2-2h.93a2 2 0 0 0 1.66-.89l.81-1.22A2 2 0 0 1 10.07 4h3.86a2 2 0 0 1 1.664.89l.81 1.22A2 2 0 0 0 18.07 7H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
+          </div>
+          <div class="hob-text">
+            <h3>Fotografie</h3>
+            <p>Ein Bild ist nie nur ein Bild – es ist eine Entscheidung. Immer auf der Suche nach dem richtigen Licht.
+            </p>
+          </div>
+        </div>
+
+        <div class="hob rv tilt" style="--d:.16s">
+          <div class="hob-idx">03</div>
+          <div class="hob-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" />
+              <rect x="2" y="6" width="14" height="12" rx="2" />
+            </svg>
+          </div>
+          <div class="hob-text">
+            <h3>Videografie</h3>
+            <p>Geschichten durch Bewegtbild erzählen – von der Idee bis zum finalen Schnitt.</p>
+          </div>
+        </div>
+
+        <div class="hob rv tilt" style="--d:.22s">
+          <div class="hob-idx">04</div>
+          <div class="hob-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M9 18V5l12-2v13" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="16" r="3" />
+            </svg>
+          </div>
+          <div class="hob-text">
+            <h3>Musik</h3>
+            <p>Musik als Inspirationsquelle und Stimmungsgeber – besonders beim Arbeiten und Kreativprozess.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="sec-label rv">( Kompetenzen )</div>
+      <h2 class="sec-title rv">Skills &amp;<br />Tools</h2>
+
+      <div class="sk-grid">
+        <div class="sk-col rv" style="--d:.05s">
+          <div class="sk-item">
+            <div class="sk-row"><span>Photoshop</span><span class="sk-val" data-v="70">—</span></div>
+            <div class="sk-bar">
+              <div class="sk-f" data-w="70"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span>Illustrator</span><span class="sk-val" data-v="80">—</span></div>
+            <div class="sk-bar">
+              <div class="sk-f" data-w="80"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span>InDesign</span><span class="sk-val" data-v="70">—</span></div>
+            <div class="sk-bar">
+              <div class="sk-f" data-w="70"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sk-col rv" style="--d:.12s">
+          <div class="sk-item">
+            <div class="sk-row"><span>Fotografie</span><span class="sk-val" data-v="90">—</span></div>
+            <div class="sk-bar">
+              <div class="sk-f" data-w="90"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span>Videografie &amp; Schnitt</span><span class="sk-val" data-v="95">—</span></div>
+            <div class="sk-bar">
+              <div class="sk-f" data-w="95"></div>
+            </div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-row"><span>Programmieren</span><span class="sk-val" data-v="65">—</span></div>
+            <div class="sk-bar">
+              <div class="sk-f" data-w="65"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== UNTERLAGEN ===================== -->
+  <section id="unterlagen" class="section s-dark">
+    <div class="container">
+      <div class="sec-label rv">( Dokumente )</div>
+      <h2 class="sec-title rv">Unterlagen</h2>
+      <p class="sec-intro rv" style="--d:.1s">Alle relevanten Bewerbungsunterlagen zum Download.</p>
+
+      <div class="docs-list">
+        <div class="doc rv" style="--d:.05s">
+          <div class="doc-l">
+            <span class="doc-type">PDF</span>
+            <h3>Lebenslauf</h3>
+          </div>
+          <a href="Dokumente/CV_Noah-Habteab.pdf" download class="doc-btn magnetic" aria-label="Download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download
+          </a>
+        </div>
+        <div class="doc rv" style="--d:.1s">
+          <div class="doc-l">
+            <span class="doc-type">PDF</span>
+            <h3>ÜK Noten</h3>
+          </div>
+          <a href="Dokumente/UEK-Noten_Noah-Habteab.pdf" download class="doc-btn magnetic" aria-label="Download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download
+          </a>
+        </div>
+        <div class="doc rv" style="--d:.15s">
+          <div class="doc-l">
+            <span class="doc-type">PDF</span>
+            <h3>Zeugnis</h3>
+          </div>
+          <a href="Dokumente/Zeugnis.pdf" download class="doc-btn magnetic" aria-label="Download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download
+          </a>
+        </div>
+        <div class="doc rv" style="--d:.2s">
+          <div class="doc-l">
+            <span class="doc-type">PDF</span>
+            <h3>Bildungsbericht</h3>
+          </div>
+          <a href="Dokumente/Bildungsberichte.pdf" download class="doc-btn magnetic" aria-label="Download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KONTAKT ===================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="sec-label rv">( Kontakt )</div>
+    </div>
+
+    <div class="contact-headline rv" style="--d:.08s">
+      <h2><em>Erreichbar</em><br />unter.</h2>
+    </div>
+
+    <div class="container">
+      <div class="contact-body">
+
+        <div class="contact-info rv" style="--d:.14s">
+          <a href="mailto:noahhabteab7@gmail.com" class="ci-link magnetic">
+            <span class="ci-lbl">E-Mail</span>
+            <span class="ci-val">noahhabteab7@gmail.com ↗</span>
+          </a>
+          <div class="ci-link">
+            <span class="ci-lbl">Telefon</span>
+            <span class="ci-val">076 522 41 41</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top rv">
+        <a href="#hero"><img src="img/Logo.png" alt="NH" class="ft-logo" /></a>
+        <nav class="ft-nav">
+          <a href="#portfolio">Portfolio</a>
+          <a href="#design">Design</a>
+          <a href="#about">About</a>
+          <a href="#contact">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="footer-bottom">
+        <p>Bern, Schweiz · Offen für Lehrstellen als Mediamatiker EFZ</p>
+        <p>Noah Habteab · Mediamatiker EFZ · 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
