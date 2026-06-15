@@ -8,22 +8,23 @@ Persönliche Portfolio-Website für Bewerbungen als Mediamatiker EFZ.
 index.html   — Gesamte HTML-Struktur
 style.css    — Alle Styles (kein Framework, reines CSS)
 script.js    — Gesamte JS-Logik (kein Framework)
-img/         — Alle Bilder (.webp)
-Videos/      — Projektvideos (.mp4)
+img/         — Alle Bilder (.webp, .png)
+Videos/      — Noch vorhandene lokale Videos (Short_film.mp4 kann gelöscht werden)
 Dokumente/   — PDFs für Download (CV, Zeugnisse etc.)
 ```
 
 ## Sections (in Reihenfolge)
 
 1. **Hero** — Name, Buttons, Portraitfoto
-2. **Portfolio** (`#portfolio`) — Mosaic-Grid mit 12 Foto/Video-Projekten, Filter (Alle / Fotografie / Video)
-3. **Photo Scroll** — Horizontale Auto-Scroll Slideshow mit 11 Bildern
-4. **Graphic Design** (`#design`) — 3 Design-Cards (Year Of, ODF Cover, Travis Scott)
-5. **Über mich** (`#about`) — Foto, Ausbildung, Mentalität, Vision, Skills
-6. **Hobbys** (`#hobbys`)
-7. **Milestones** (`#milestones`)
-8. **Unterlagen** (`#unterlagen`) — 4 PDFs zum Download
-9. **Kontakt** (`#contact`)
+2. **Bewerbungsvideo** (`#bewerbungsvideo`) — YouTube-Embed (ID: `1E68z3HI1n0`), 16:9, max-width 1200px
+3. **Portfolio** (`#portfolio`) — Mosaic-Grid mit 12 Foto/Video-Projekten, Filter (Alle / Fotografie / Video)
+4. **Photo Scroll** — Horizontale Auto-Scroll Slideshow mit 11 Bildern
+5. **Graphic Design** (`#design`) — 3 Design-Cards (Year Of, ODF Cover, Travis Scott)
+6. **Über mich** (`#about`) — Foto, Ausbildung, Mentalität, Vision, Skills
+7. **Hobbys** (`#hobbys`)
+8. **Milestones** (`#milestones`)
+9. **Unterlagen** (`#unterlagen`) — 5 PDFs zum Download
+10. **Kontakt** (`#contact`)
 
 ## Wichtige Design-Entscheidungen
 
@@ -32,15 +33,42 @@ Dokumente/   — PDFs für Download (CV, Zeugnisse etc.)
 - **Unterlagen-Zeilen** — `scale(1.02)` auf Hover, kein Tilt
 - **Kein Hover-Overlay für Projekttexte** — Text erscheint nur beim Klick in der Lightbox
 
+## Video-Karten im Mosaic-Grid
+
+Videos wurden aus Speichergründen auf YouTube hochgeladen. Es gibt drei Typen von Video-Cards:
+
+### 1. YouTube Embed (Lightbox-Iframe)
+Attribut: `data-youtube="VIDEO_ID"` + optional `data-aspect="9/16"` (für Shorts, Standard ist 16:9)
+- Klick öffnet Lightbox mit `<iframe>` und YouTube-Player
+- Beispiel: **Short Film** (`data-youtube="_mA1FNUbbEI"`, `data-aspect="9/16"`)
+- Thumbnail: eigenes Bild `img/Thumbnail_Kurz-Film.png`
+
+### 2. YouTube Direktlink (öffnet neues Tab)
+Attribut: `data-yt-url="https://youtu.be/..."` 
+- Klick öffnet YouTube direkt im neuen Tab (kein Embed)
+- Nötig wenn Video Copyright-Sperre hat und nicht einbettbar ist
+- Hover zeigt `.mc-yt-hint` Text "Auf YouTube ansehen ↗" unter dem Titel
+- Beispiel: **Eritrea Tour** (`data-yt-url="https://youtu.be/agjLJVQoxNE"`)
+- Thumbnail: eigenes Bild `img/Thumbnail-Eritrea.png`
+
+### 3. Lokales Video (veraltet, nicht mehr verwendet)
+Attribut: `data-video="Videos/datei.mp4"`
+- Spielt Video direkt in der Lightbox ab
+
 ## Lightbox-System
 
 Beim Klick auf ein Projekt öffnet sich die Lightbox mit:
-- Bild oder Video **links**
+- Bild, Video oder YouTube-Iframe **links**
 - Beschreibungstext **rechts**, linksbündig, vertikal mittig
 - Kein Titel sichtbar (`lb-caption` ist `display:none`)
 - Text in `lb-desc` kommt aus `data-desc` Attribut des Elements
 
-Relevante IDs: `#lightbox`, `#lb-img`, `#lb-video`, `#lb-desc`
+Relevante IDs: `#lightbox`, `#lb-img`, `#lb-video`, `#lb-iframe`, `#lb-desc`
+
+**Lightbox-Logik (JS):** Priorität beim Klick auf `.mc[data-c="video"]`:
+1. `data-yt-url` → `window.open(url, '_blank')` (kein Lightbox)
+2. `data-youtube` → `showYoutube()` mit Iframe
+3. `data-video` → `showVideo()` mit lokalem Video
 
 ## Projekttexte (data-desc)
 
@@ -77,13 +105,42 @@ Jedes klickbare Element hat ein `data-desc` Attribut mit dem Beschreibungstext.
 - **Nav** — Scrolled-State + Mobile Burger
 - **3D Tilt** — Nur auf `.tilt` Elementen (Mosaic-Cards, Design-Cards, About-Foto, Hob-Items)
 - **Portfolio Filter** — `.pf-btn` filtert Mosaic nach `data-c`
-- **Lightbox** — Öffnet bei Klick auf `.mc`, `.dsgn-card`, `.ps-item img`; zeigt `data-desc`
+- **Lightbox** — Öffnet bei Klick auf `.mc`, `.dsgn-card`, `.ps-item img`; unterstützt Bilder, lokale Videos und YouTube-Iframes
 - **Photo Scroll** — Auto-Scroll + manuelle Prev/Next Buttons
 - **Reveal** — IntersectionObserver für `.rv` Elemente
 - **Skill Bars** — Animiert beim Einblenden
 - **Count Up** — Zahlen-Animation
 
+## Bewerbungsvideo-Section
+
+- YouTube-Embed (kein lokales Video), ID: `1E68z3HI1n0`
+- CSS-Klassen: `.bv-section`, `.bv-player-wrap`, `.bv-ratio`
+- `.bv-ratio` nutzt `aspect-ratio: 16/9` und `box-shadow` als subtiler Glow-Border
+- Iframe-Wrapper statt `<video>`-Tag
+
+## Domain & Meta-Tags
+
+- Domain: **noah-habteab.ch** (gekauft, DNS/Hosting noch einzurichten)
+- Deeplinks funktionieren automatisch via Anker: `noah-habteab.ch/#portfolio`, `/#about` etc.
+- Meta-Tags in `<head>` vorhanden:
+  - `<meta name="description">` — SEO-Beschreibung
+  - `<link rel="canonical" href="https://noah-habteab.ch">`
+  - Open Graph: `og:type`, `og:url`, `og:title`, `og:description`, `og:image`
+
+## Dokumente (Dokumente/)
+
+| Datei | HTML-Link |
+|---|---|
+| `CV_Noah-Habteab.pdf` | Lebenslauf |
+| `UEK-Noten_Noah-Habteab.pdf` | ÜK Noten |
+| `Zeugnis.pdf` | Zeugnis |
+| `Bildungsberichte.pdf` | Bildungsbericht |
+| `PDF_Portfolio.pdf` | PDF Portfolio |
+
 ## Was noch offen sein könnte
 
 - Texte für einzelne Projekte können jederzeit in den `data-desc` Attributen angepasst werden
 - Responsive Verhalten auf Mobile getestet (Lightbox stackt vertikal unter 768px)
+- `Videos/Short_film.mp4` kann lokal gelöscht werden (läuft jetzt über YouTube)
+- `Videos/Eritrea_Recap.mp4` kann lokal gelöscht werden (läuft jetzt über YouTube)
+- DNS und Hosting für noah-habteab.ch noch einzurichten

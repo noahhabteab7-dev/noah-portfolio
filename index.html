@@ -5,11 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noah Habteab — Mediamatiker EFZ</title>
+  <meta name="description" content="Portfolio und Bewerbungsunterlagen von Noah Habteab, Mediamatiker EFZ in Ausbildung aus Bern. Fotografie, Videografie und Graphic Design." />
+  <link rel="canonical" href="https://noah-habteab.ch" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://noah-habteab.ch" />
+  <meta property="og:title" content="Noah Habteab — Mediamatiker EFZ" />
+  <meta property="og:description" content="Portfolio und Bewerbungsunterlagen von Noah Habteab, Mediamatiker EFZ in Ausbildung aus Bern." />
+  <meta property="og:image" content="https://noah-habteab.ch/img/Portraet_Noah.webp" />
+
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet" />
 </head>
 
@@ -35,6 +45,7 @@
     <div class="lb-inner">
       <img id="lb-img" src="" alt="" />
       <video id="lb-video" controls style="display:none;max-width:60vw;max-height:82vh;flex-shrink:0;"></video>
+      <iframe id="lb-iframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display:none;"></iframe>
       <p class="lb-caption" id="lb-caption"></p>
       <p class="lb-desc" id="lb-desc"></p>
     </div>
@@ -113,6 +124,19 @@
   </section>
 
 
+  <!-- ===================== BEWERBUNGSVIDEO ===================== -->
+  <section id="bewerbungsvideo" class="section s-dark bv-section">
+    <div class="container">
+      <div class="sec-label rv">( Bewerbung )</div>
+      <h2 class="sec-title rv">Bewerbungsvideo</h2>
+    </div>
+    <div class="bv-player-wrap rv" style="--d:.22s">
+      <div class="bv-ratio">
+        <iframe src="https://www.youtube.com/embed/1E68z3HI1n0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== PORTFOLIO ===================== -->
   <section id="portfolio" class="section">
     <div class="container">
@@ -127,7 +151,7 @@
 
     <div class="mosaic-grid" id="port-grid">
 
-      <div class="mc mc-w6 mc-tall rv tilt" data-c="foto"
+      <div class="mc mc-w6 mc-tall rv tilt" data-c="foto" data-id="silhouette"
         data-desc="Manche Bilder entstehen, weil man ein Motiv findet. Dieses entstand, weil ich das Licht gefunden habe. Das Licht war das Thema, nicht das Motiv dahinter. Ich wollte zeigen, dass Licht keine Nebenrolle spielt, sondern selbst eine Aussage ist. Die Silhouette war das Werkzeug dafür: Form reduziert auf das Wesentliche, damit das Licht sprechen kann.">
         <div class="mc-img"><img src="img/Foto-Giulio_Silhuette.webp" alt="Silhouette" /></div>
         <div class="mc-over"><span class="mc-cat">Fotografie</span>
@@ -135,7 +159,7 @@
         </div>
         <span class="mc-num">01</span>
       </div>
-      <div class="mc rv tilt" data-c="foto" style="--d:.05s"
+      <div class="mc rv tilt" data-c="foto" data-id="joy-crazy" style="--d:.05s"
         data-desc="Inspiration kann überall sein, man muss sie nur erkennen und dann umsetzen. Ich habe dieses Shooting auf Instagram gesehen und wollte es selber umsetzen. Was mich daran fasziniert hat, war die Einfachheit dahinter, nur 2 Blitzlichter, keine aufwändige Bearbeitung. Die Kontraste entstanden allein durch die Position des Models. Das hat mir gezeigt, dass weniger oft mehr ist.">
         <div class="mc-img"><img src="img/Foto-Joy_Crazy.webp" alt="Joy Crazy" /></div>
         <div class="mc-over"><span class="mc-cat">Fotografie</span>
@@ -143,7 +167,7 @@
         </div>
         <span class="mc-num">02</span>
       </div>
-      <div class="mc rv tilt" data-c="foto" style="--d:.08s"
+      <div class="mc rv tilt" data-c="foto" data-id="car" style="--d:.08s"
         data-desc="Nicht jedes Motiv muss gesucht werden. Manchmal stellt es sich einfach vor dich hin. Das Fahrrad hat mich sofort angesprochen, wegen seiner Symmetrie. Es gibt Motive, die ihre eigene Komposition mitbringen. Man muss sie nur erkennen. Ich musste nichts arrangieren, nur den richtigen Winkel finden, der den Diagonalen gerecht wird. Das war die einzige Entscheidung.">
         <div class="mc-img"><img src="img/Foto-Car.webp" alt="Car" /></div>
         <div class="mc-over"><span class="mc-cat">Fotografie</span>
@@ -151,10 +175,10 @@
         </div>
         <span class="mc-num">03</span>
       </div>
-      <div class="mc rv tilt" data-c="video" data-video="Videos/Short_film.mp4" style="--d:.06s"
+      <div class="mc rv tilt" data-c="video" data-id="short-film" data-youtube="_mA1FNUbbEI" data-aspect="9/16" style="--d:.06s"
         data-desc="Ein Bild sagt mehr als tausend Worte. Aber eine Geschichte sagt mehr als ein Bild. Dieser Kurzfilm entstand, um das Storytelling zu üben. Weil ich überzeugt bin, dass Storytelling das Wichtigste in der visuellen Kunst ist, nicht die Technik. Ich habe die Perspektive gezielt eingesetzt, um Bild und Geschichte zu einem zu machen. Jede Einstellung war eine bewusste Entscheidung darüber, was der Zuschauer sehen soll, und was nicht.">
         <div class="mc-img">
-          <video autoplay muted loop playsinline src="Videos/Short_film.mp4"></video>
+          <img src="img/Thumbnail_Kurz-Film.png" alt="Short Film" />
           <div class="mc-play"><svg viewBox="0 0 24 24" fill="currentColor">
               <polygon points="6,3 20,12 6,21" />
             </svg></div>
@@ -164,7 +188,7 @@
         </div>
         <span class="mc-num">04</span>
       </div>
-      <div class="mc rv tilt" data-c="foto" style="--d:.1s"
+      <div class="mc rv tilt" data-c="foto" data-id="bruecke" style="--d:.1s"
         data-desc="Gute Bilder warten nicht auf den perfekten Moment, sie sind da, wenn man bereit ist. Ein Ferienbild, aber keine zufällige Aufnahme. Die Führungslinie der Brücke war bereits da, perfekt. Ich musste nur den Standpunkt finden, der ihr gerecht wird, und den Auslöser drücken. Manchmal ist das die eigentliche Arbeit: das Offensichtliche zu sehen, bevor es jemand anderes tut.">
         <div class="mc-img"><img src="img/Foto-bruecke.webp" alt="Brücke" /></div>
         <div class="mc-over"><span class="mc-cat">Fotografie</span>
@@ -172,7 +196,7 @@
         </div>
         <span class="mc-num">05</span>
       </div>
-      <div class="mc mc-w4 rv tilt" data-c="foto" style="--d:.04s"
+      <div class="mc mc-w4 rv tilt" data-c="foto" data-id="parfum" style="--d:.04s"
         data-desc="Wie erzählt man die Geschichte eines Objekts? Das war ein Schulprojekt über Produktfotografie. Ich habe mich bewusst gegen das klassische Produktbild entschieden und den Lifestyle-Ansatz gewählt. Weil ein Produkt allein keine Geschichte erzählt. Der Vibe, die Atmosphäre rund ums Objekt, das ist genauso Teil des Bildes wie das Produkt selbst.">
         <div class="mc-img"><img src="img/Foto-Parfuem.webp" alt="Parfum" /></div>
         <div class="mc-over"><span class="mc-cat">Fotografie</span>
@@ -180,20 +204,21 @@
         </div>
         <span class="mc-num">06</span>
       </div>
-      <div class="mc mc-w4 rv tilt" data-c="video" data-video="Videos/Eritrea_Recap.mp4" style="--d:.07s"
+      <div class="mc mc-w4 rv tilt" data-c="video" data-id="eritrea-tour" data-yt-url="https://youtu.be/agjLJVQoxNE" style="--d:.07s"
         data-desc="Manche Orte spricht man nicht einfach an, man kehrt zu ihnen zurück. Das war in den Ferien, als wir in die Heimat gereist sind. Alles per Hand, ohne Stativ, ohne zusätzliche Ausrüstung. Den Vintage-Look habe ich in der Bearbeitung hinzugefügt, nicht als Filter, sondern weil er zur Stimmung des Landes gepasst hat. Das Schwierigste war, dass Kameras dort nicht gern gesehen werden. Diese Einschränkung war Teil des Werks, und hat es ehrlicher gemacht.">
         <div class="mc-img">
-          <video autoplay muted loop playsinline src="Videos/Eritrea_Recap.mp4"></video>
+          <img src="img/Thumbnail-Eritrea.png" alt="Eritrea Tour" />
           <div class="mc-play"><svg viewBox="0 0 24 24" fill="currentColor">
               <polygon points="6,3 20,12 6,21" />
             </svg></div>
         </div>
         <div class="mc-over"><span class="mc-cat">Videografie</span>
-          <h3>Eritrea Recap</h3>
+          <h3>Eritrea Tour</h3>
+          <span class="mc-yt-hint">Auf YouTube ansehen ↗</span>
         </div>
         <span class="mc-num">07</span>
       </div>
-      <div class="mc mc-w4 rv tilt" data-c="foto" style="--d:.11s"
+      <div class="mc mc-w4 rv tilt" data-c="foto" data-id="mirav" style="--d:.11s"
         data-desc="Jeder hat ein Bild, das alles verändert hat. Das war in meinem 1. Lehrjahr, beim Üben von Portraitfotografie. Davor dachte ich, Fotografieren sei simpel. Dieses Shooting hat das geändert. Ich habe gemerkt, dass hinter jedem guten Bild eine Entscheidung steckt, über Licht, Abstand, Blick. Dass Fotografie Absicht braucht, keinen Zufall.">
         <div class="mc-img"><img src="img/Foto-Mirav.webp" alt="Mirav" /></div>
         <div class="mc-over"><span class="mc-cat">Fotografie</span>
@@ -201,7 +226,7 @@
         </div>
         <span class="mc-num">08</span>
       </div>
-      <div class="mc rv tilt" data-c="foto" style="--d:.03s"
+      <div class="mc rv tilt" data-c="foto" data-id="ale-cartier-fans" style="--d:.03s"
         data-desc="Ein Konzert zu fotografieren heisst, im Chaos eine Ordnung zu finden. Das war ein Konzert eines Kollegen, bei dem ich fotografiert habe. Ich wollte eine neue Herausforderung. Ein Konzert ist Chaos: viele Menschen, viel Bewegung, kein klares Motiv. Die Idee war, durch die Menge einen bewussten Tunnel zu schaffen, der das Auge zwingend zum Künstler führt. Ordnung im Chaos.">
         <div class="mc-img"><img src="img/Foto-Ale_Cartier_Fans.webp" alt="Ale Cartier Fans" /></div>
         <div class="mc-over"><span class="mc-cat">Fotografie</span>
@@ -209,7 +234,7 @@
         </div>
         <span class="mc-num">09</span>
       </div>
-      <div class="mc mc-w5 rv tilt" data-c="foto" style="--d:.09s"
+      <div class="mc mc-w5 rv tilt" data-c="foto" data-id="abel" style="--d:.09s"
         data-desc="Manchmal ist die stärkste Entscheidung, etwas wegzulassen. Ein Licht. Bewusst. Ich wollte nicht mehr, weil mehr das Ziel verfehlt hätte. Der Hell-Dunkel-Kontrast entsteht nicht trotz eines einzigen Lichts, sondern genau deshalb. Schatten ist keine Abwesenheit von Licht. Schatten ist eine Entscheidung.">
         <div class="mc-img"><img src="img/Foto-Abel.webp" alt="Abel" /></div>
         <div class="mc-over"><span class="mc-cat">Fotografie</span>
@@ -217,7 +242,7 @@
         </div>
         <span class="mc-num">10</span>
       </div>
-      <div class="mc mc-w2 rv tilt" data-c="foto" style="--d:.12s"
+      <div class="mc mc-w2 rv tilt" data-c="foto" data-id="girl-glass" style="--d:.12s"
         data-desc="Wenn ein Kunde kommt, bringt er eine Idee. Was ich mitbringe, ist der Blick. Eine echte Produktfotografie für eine stylische Brille. Ich habe den Wunsch des Kunden ausgeführt und dabei trotzdem meinen eigenen Blick eingebracht. Mit der Bearbeitung habe ich einen Vibe eingefangen, der über das reine Produktbild hinausgeht. Der Kunde war sehr zufrieden. Das war die Bestätigung.">
         <div class="mc-img"><img src="img/Foto-Girl_Glass.webp" alt="Girl Glass" /></div>
         <div class="mc-over"><span class="mc-cat">Fotografie</span>
@@ -225,7 +250,7 @@
         </div>
         <span class="mc-num">11</span>
       </div>
-      <div class="mc mc-w2 rv tilt" data-c="foto" style="--d:.14s"
+      <div class="mc mc-w2 rv tilt" data-c="foto" data-id="bottom" style="--d:.14s"
         data-desc="Nicht jedes Bild zeigt, was es zeigt. Kopfhörer verbinde ich mit Musik, und Musik schafft einen eigenen Raum. Ich wollte diesen Raum sichtbar machen. Eine Stimmung kreieren, die ruhig ist, fokussiert, eine Oase. Das Bild sollte nicht zeigen, wie Kopfhörer aussehen, sondern wie sie sich anfühlen.">
         <div class="mc-img"><img src="img/Foto-Bottom.webp" alt="Bottom" /></div>
         <div class="mc-over"><span class="mc-cat">Fotografie</span>
@@ -280,7 +305,7 @@
 
       <div class="dsgn-cards">
 
-        <div class="dsgn-card rv tilt" style="--d:.05s"
+        <div class="dsgn-card rv tilt" data-id="year-of" style="--d:.05s"
           data-desc="Ein Bild kann eine Geschichte erzählen. Ein Poster muss mehr tun, es muss eine Welt schaffen. Das Bild allein hätte gereicht, aber ich wollte mehr daraus machen. In der Bearbeitung habe ich den 2000s-Vibe weiter ausgearbeitet und das Alter auf dem Shirt hinzugefügt. Nicht als Dekoration, sondern als Detail, das die Geschichte vervollständigt. Typografie als Teil des Bildes.">
           <div class="dc-vis">
             <img src="img/Year_of_Poster.webp" alt="Year Of Poster" />
@@ -291,7 +316,7 @@
           </div>
         </div>
 
-        <div class="dsgn-card rv tilt" style="--d:.1s"
+        <div class="dsgn-card rv tilt" data-id="odf-cover" style="--d:.1s"
           data-desc="Ein Cover ist die erste Begegnung, und erste Begegnungen entscheiden alles. Dieses Cover wollte ich als Magazin-Cover gestalten. Ein Magazin-Cover hat eine klare Aufgabe: Es muss sofort wirken. Ich habe mich für einen minimalistischen Ansatz entschieden, weil das Bild selber stark genug ist. Jedes zusätzliche Element hätte davon abgelenkt. Weniger war die richtige Entscheidung.">
           <div class="dc-vis">
             <img src="img/odf_cover_Poster.webp" alt="ODF Cover Poster" />
@@ -302,7 +327,7 @@
           </div>
         </div>
 
-        <div class="dsgn-card rv tilt" style="--d:.15s"
+        <div class="dsgn-card rv tilt" data-id="travis-scott" style="--d:.15s"
           data-desc="Die härteste Aufgabe ist die, die man sich selbst stellt. Dieses Poster habe ich mir selber als Herausforderung gestellt. Kein Auftrag, kein Briefing, nur die Frage, ob ich ein Event-Poster gestalten kann, das wirklich funktioniert. Eines, das auf den ersten Blick alles kommuniziert. Die Herausforderung war nicht die Technik, sondern die Entscheidung: Was bleibt drin, was fällt raus. Das Ergebnis war meine Antwort.">
           <div class="dc-vis">
             <img src="img/Travis_Scott_Poster.webp" alt="Travis Scott Poster" />
@@ -575,6 +600,20 @@
             <h3>Bildungsbericht</h3>
           </div>
           <a href="Dokumente/Bildungsberichte.pdf" download class="doc-btn magnetic" aria-label="Download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download
+          </a>
+        </div>
+        <div class="doc rv" style="--d:.25s">
+          <div class="doc-l">
+            <span class="doc-type">PDF</span>
+            <h3>PDF Portfolio</h3>
+          </div>
+          <a href="Dokumente/PDF_Portfolio.pdf" download class="doc-btn magnetic" aria-label="Download">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
               <polyline points="7 10 12 15 17 10" />

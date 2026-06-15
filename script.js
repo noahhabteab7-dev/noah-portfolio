@@ -268,33 +268,49 @@ document.querySelectorAll('.pf-btn').forEach(btn => {
    LIGHTBOX
    ============================================================ */
 (function () {
-  const lb       = document.getElementById('lightbox');
-  const lbImg    = document.getElementById('lb-img');
-  const lbVideo  = document.getElementById('lb-video');
-  const lbCap    = document.getElementById('lb-caption');
-  const lbDesc   = document.getElementById('lb-desc');
-  const lbClose  = document.getElementById('lb-close');
+  const lb        = document.getElementById('lightbox');
+  const lbImg     = document.getElementById('lb-img');
+  const lbVideo   = document.getElementById('lb-video');
+  const lbIframe  = document.getElementById('lb-iframe');
+  const lbCap     = document.getElementById('lb-caption');
+  const lbDesc    = document.getElementById('lb-desc');
+  const lbClose   = document.getElementById('lb-close');
   if (!lb) return;
 
-  function showImg(src, caption, desc) {
-    lbImg.src = src;
-    lbImg.style.display = '';
-    lbVideo.style.display = 'none';
-    lbVideo.pause(); lbVideo.src = '';
-    lbCap.textContent = caption || '';
-    lbDesc.textContent = desc || '';
-    openLb();
+  function hideAll() {
+    lbImg.style.display = 'none'; lbImg.src = '';
+    lbVideo.style.display = 'none'; lbVideo.pause(); lbVideo.src = '';
+    lbIframe.style.display = 'none'; lbIframe.src = '';
   }
 
-  function showVideo(src, caption, desc) {
-    lbVideo.src = src;
-    lbVideo.style.display = '';
-    lbImg.style.display = 'none';
-    lbImg.src = '';
+  function showImg(src, caption, desc, id) {
+    hideAll();
+    lbImg.src = src;
+    lbImg.style.display = '';
     lbCap.textContent = caption || '';
     lbDesc.textContent = desc || '';
-    openLb();
+    openLb(id);
+  }
+
+  function showVideo(src, caption, desc, id) {
+    hideAll();
+    lbVideo.src = src;
+    lbVideo.style.display = '';
+    lbCap.textContent = caption || '';
+    lbDesc.textContent = desc || '';
+    openLb(id);
     lbVideo.play();
+  }
+
+  function showYoutube(ytId, caption, desc, id, aspect) {
+    hideAll();
+    lbIframe.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
+    lbIframe.style.aspectRatio = aspect || '16/9';
+    lbIframe.style.width = (aspect === '9/16') ? '38vw' : '60vw';
+    lbIframe.style.display = '';
+    lbCap.textContent = caption || '';
+    lbDesc.textContent = desc || '';
+    openLb(id);
   }
 
   // Poster / design cards
@@ -303,7 +319,7 @@ document.querySelectorAll('.pf-btn').forEach(btn => {
       const img = card.querySelector('.dc-vis img');
       if (!img) return;
       const title = card.querySelector('.dc-title') ? card.querySelector('.dc-title').textContent : '';
-      showImg(img.src, title, card.dataset.desc || '');
+      showImg(img.src, title, card.dataset.desc || '', card.dataset.id);
     });
   });
 
@@ -313,17 +329,21 @@ document.querySelectorAll('.pf-btn').forEach(btn => {
       const img = card.querySelector('.mc-img img');
       if (!img) return;
       const title = card.querySelector('h3') ? card.querySelector('h3').textContent : '';
-      showImg(img.src, title, card.dataset.desc || '');
+      showImg(img.src, title, card.dataset.desc || '', card.dataset.id);
     });
   });
 
   // Video cards in mosaic
   document.querySelectorAll('.mc[data-c="video"]').forEach(card => {
     card.addEventListener('click', () => {
-      const src = card.dataset.video;
-      if (!src) return;
       const title = card.querySelector('h3') ? card.querySelector('h3').textContent : '';
-      showVideo(src, title, card.dataset.desc || '');
+      if (card.dataset.ytUrl) {
+        window.open(card.dataset.ytUrl, '_blank', 'noopener');
+      } else if (card.dataset.youtube) {
+        showYoutube(card.dataset.youtube, title, card.dataset.desc || '', card.dataset.id, card.dataset.aspect);
+      } else if (card.dataset.video) {
+        showVideo(card.dataset.video, title, card.dataset.desc || '', card.dataset.id);
+      }
     });
   });
 
@@ -335,22 +355,32 @@ document.querySelectorAll('.pf-btn').forEach(btn => {
     });
   });
 
-  function openLb() {
+  function openLb(id) {
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
     if (window._psCtrl) window._psCtrl.pause();
+    if (id) history.replaceState(null, '', '#' + id);
   }
 
   function closeLb() {
     lb.classList.remove('open');
     document.body.style.overflow = '';
     lbVideo.pause(); lbVideo.src = '';
+    lbIframe.src = '';
     if (window._psCtrl) window._psCtrl.resume();
+    history.replaceState(null, '', window.location.pathname);
   }
 
   lbClose.addEventListener('click', closeLb);
   lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+  // Deep link: open project from URL hash on page load
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    const target = document.querySelector('[data-id="' + hash + '"]');
+    if (target) setTimeout(() => target.click(), 600);
+  }
 })();
 
 /* ============================================================
