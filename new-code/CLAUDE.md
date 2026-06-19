@@ -120,12 +120,42 @@ Jedes klickbare Element hat ein `data-desc` Attribut mit dem Beschreibungstext.
 
 ## Domain & Meta-Tags
 
-- Domain: **noah-habteab.ch** (gekauft, DNS/Hosting noch einzurichten)
-- Deeplinks funktionieren automatisch via Anker: `noah-habteab.ch/#portfolio`, `/#about` etc.
+- Domain: **noah-habteab.ch** — DNS/Hosting eingerichtet (Stand: Juni 2026)
 - Meta-Tags in `<head>` vorhanden:
   - `<meta name="description">` — SEO-Beschreibung
   - `<link rel="canonical" href="https://noah-habteab.ch">`
   - Open Graph: `og:type`, `og:url`, `og:title`, `og:description`, `og:image`
+
+## Deeplinks
+
+Deeplinks funktionieren über URL-Hash. Beim Seitenaufruf sucht JS nach `[data-id="hash"]` und löst automatisch einen Klick aus (öffnet Lightbox oder scrollt zur Section).
+
+**Sections (scrollen nur):**
+| URL | Ziel |
+|---|---|
+| `/#bewerbungsvideo` | Bewerbungsvideo-Section |
+| `/#portfolio` | Portfolio-Grid |
+| `/#design` | Graphic Design |
+| `/#about` | Über mich |
+| `/#hobbys` | Hobbys |
+| `/#milestones` | Milestones |
+| `/#unterlagen` | Unterlagen |
+| `/#contact` | Kontakt |
+
+**Lightbox-Deeplinks (öffnen direkt die Lightbox):**
+| URL | Element |
+|---|---|
+| `/#year-of` | Design-Card: Year Of |
+| `/#odf-cover` | Design-Card: ODF Cover |
+| `/#travis-scott` | Design-Card: Travis Scott |
+| `/#ale-cartier-fans` | Mosaic-Foto: Ale Cartier Fans |
+| `/#giulio-denken` | Photo Scroll: Giulio Denken |
+| `/#kleider-cold` | Photo Scroll: Kleider Cold |
+| `/#lana-baseballschlaeger` | Photo Scroll: Lana Baseballschläger |
+| `/#white-boy-verzoegert` | Photo Scroll: White Boy Verzögert |
+| `/#boy-glasse` | Photo Scroll: Boy Glasse |
+
+**Neue Lightbox-Deeplinks hinzufügen:** `data-id="slug"` am Element setzen — der JS-Deeplink-Handler in der Lightbox-IIFE erledigt den Rest automatisch. Bei `.ps-item` immer nur zur ersten Instanz (nicht dem Duplikat für den Loop).
 
 ## Dokumente (Dokumente/)
 
