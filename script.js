@@ -348,10 +348,11 @@ document.querySelectorAll('.pf-btn').forEach(btn => {
   });
 
   // Slideshow images
-  document.querySelectorAll('.ps-item img').forEach(img => {
-    img.addEventListener('click', () => {
-      const item = img.closest('.ps-item');
-      showImg(img.src, item ? item.dataset.title || '' : '', item ? item.dataset.desc || '' : '');
+  document.querySelectorAll('.ps-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      if (!img) return;
+      showImg(img.src, item.dataset.title || '', item.dataset.desc || '', item.dataset.id || '');
     });
   });
 
