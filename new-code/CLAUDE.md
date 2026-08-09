@@ -20,11 +20,12 @@ Dokumente/   — PDFs für Download (CV, Zeugnisse etc.)
 3. **Portfolio** (`#portfolio`) — Mosaic-Grid mit 12 Foto/Video-Projekten, Filter (Alle / Fotografie / Video)
 4. **Photo Scroll** — Horizontale Auto-Scroll Slideshow mit 11 Bildern
 5. **Graphic Design** (`#design`) — 3 Design-Cards (Year Of, ODF Cover, Travis Scott)
-6. **Über mich** (`#about`) — Foto, Ausbildung, Mentalität, Vision, Skills
-7. **Hobbys** (`#hobbys`)
-8. **Milestones** (`#milestones`)
-9. **Unterlagen** (`#unterlagen`) — 5 PDFs zum Download
-10. **Kontakt** (`#contact`)
+6. **Web** (`#web`) — 1 Web-Card (ZAKI Barbershop), 16:9 Screenshot, Link zur Live-Website
+7. **Über mich** (`#about`) — Foto, Ausbildung, Mentalität, Vision, Skills
+8. **Hobbys** (`#hobbys`)
+9. **Milestones** (`#milestones`)
+10. **Unterlagen** (`#unterlagen`) — 5 PDFs zum Download
+11. **Kontakt** (`#contact`)
 
 ## Wichtige Design-Entscheidungen
 
@@ -69,6 +70,8 @@ Relevante IDs: `#lightbox`, `#lb-img`, `#lb-video`, `#lb-iframe`, `#lb-desc`
 1. `data-yt-url` → `window.open(url, '_blank')` (kein Lightbox)
 2. `data-youtube` → `showYoutube()` mit Iframe
 3. `data-video` → `showVideo()` mit lokalem Video
+
+**Externer Link in der Lightbox:** `data-link="https://..."` auf einem `.dsgn-card`-Element zeigt in der Lightbox zusätzlich einen Link-Button (`#lb-link`, "Website ansehen ↗") unter dem Beschreibungstext, der in einem neuen Tab öffnet. Genutzt für die Web-Card (ZAKI Barbershop), da hier zusätzlich zur Bildvorschau ein Link zur echten Website sinnvoll ist.
 
 ## Projekttexte (data-desc)
 
@@ -136,6 +139,7 @@ Deeplinks funktionieren über URL-Hash. Beim Seitenaufruf sucht JS nach `[data-i
 | `/#bewerbungsvideo` | Bewerbungsvideo-Section |
 | `/#portfolio` | Portfolio-Grid |
 | `/#design` | Graphic Design |
+| `/#web` | Web |
 | `/#about` | Über mich |
 | `/#hobbys` | Hobbys |
 | `/#milestones` | Milestones |
@@ -148,6 +152,7 @@ Deeplinks funktionieren über URL-Hash. Beim Seitenaufruf sucht JS nach `[data-i
 | `/#year-of` | Design-Card: Year Of |
 | `/#odf-cover` | Design-Card: ODF Cover |
 | `/#travis-scott` | Design-Card: Travis Scott |
+| `/#zaki-barbershop` | Web-Card: ZAKI Barbershop |
 | `/#ale-cartier-fans` | Mosaic-Foto: Ale Cartier Fans |
 | `/#giulio-denken` | Photo Scroll: Giulio Denken |
 | `/#kleider-cold` | Photo Scroll: Kleider Cold |

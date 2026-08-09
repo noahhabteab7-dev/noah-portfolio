@@ -274,6 +274,7 @@ document.querySelectorAll('.pf-btn').forEach(btn => {
   const lbIframe  = document.getElementById('lb-iframe');
   const lbCap     = document.getElementById('lb-caption');
   const lbDesc    = document.getElementById('lb-desc');
+  const lbLink    = document.getElementById('lb-link');
   const lbClose   = document.getElementById('lb-close');
   if (!lb) return;
 
@@ -281,14 +282,19 @@ document.querySelectorAll('.pf-btn').forEach(btn => {
     lbImg.style.display = 'none'; lbImg.src = '';
     lbVideo.style.display = 'none'; lbVideo.pause(); lbVideo.src = '';
     lbIframe.style.display = 'none'; lbIframe.src = '';
+    lbLink.style.display = 'none'; lbLink.href = '';
   }
 
-  function showImg(src, caption, desc, id) {
+  function showImg(src, caption, desc, id, link) {
     hideAll();
     lbImg.src = src;
     lbImg.style.display = '';
     lbCap.textContent = caption || '';
     lbDesc.textContent = desc || '';
+    if (link) {
+      lbLink.href = link;
+      lbLink.style.display = 'inline-block';
+    }
     openLb(id);
   }
 
@@ -319,7 +325,7 @@ document.querySelectorAll('.pf-btn').forEach(btn => {
       const img = card.querySelector('.dc-vis img');
       if (!img) return;
       const title = card.querySelector('.dc-title') ? card.querySelector('.dc-title').textContent : '';
-      showImg(img.src, title, card.dataset.desc || '', card.dataset.id);
+      showImg(img.src, title, card.dataset.desc || '', card.dataset.id, card.dataset.link);
     });
   });
 
@@ -368,6 +374,7 @@ document.querySelectorAll('.pf-btn').forEach(btn => {
     document.body.style.overflow = '';
     lbVideo.pause(); lbVideo.src = '';
     lbIframe.src = '';
+    lbLink.style.display = 'none'; lbLink.href = '';
     if (window._psCtrl) window._psCtrl.resume();
     history.replaceState(null, '', window.location.pathname);
   }
